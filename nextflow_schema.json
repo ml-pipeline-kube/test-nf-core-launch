@@ -51,50 +51,197 @@
                     "help_text": "Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.",
                     "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
                 },
+                "multiqc_title": {
+                    "type": "string",
+                    "description": "MultiQC report title. Printed as page header, used for filename if not otherwise specified.",
+                    "fa_icon": "fas fa-file-signature"
+                },
+                "build_references": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Specifies which analysis type for the pipeline - either build references or analyse data"
+                },
+                "cosmic_username": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "COSMIC username"
+                },
+                "cosmic_passwd": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "COSMIC password"
+                },
+                "genomes_base": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to reference folder"
+                },
+                "ensembl_version": {
+                    "type": "integer",
+                    "fa_icon": "far fa-file-code",
+                    "description": "ensembl version",
+                    "default": 105
+                },
+                "starfusion_build": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "If set, starfusion references are built from scratch instead of downloaded (default)"
+                },
+                "read_length": {
+                    "type": "integer",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Read length",
+                    "default": 100
+                },
                 "all": {
                     "type": "boolean",
                     "fa_icon": "far fa-file-code",
                     "description": "Build or run all references/analyses"
                 },
-                "arriba_1": {
+                "arriba": {
                     "type": "boolean",
                     "fa_icon": "far fa-file-code",
                     "description": "Build or run arriba references/analyses"
                 },
-                "arriba_2": {
+                "arriba_ref": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba references"
                 },
-                "arriba_3": {
+                "arriba_ref_blacklist": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba reference blacklist"
                 },
-                "arriba_4": {
+                "arriba_ref_cytobands": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba reference cytobands"
                 },
-                "arriba_5": {
+                "arriba_ref_known_fusions": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba reference known fusions"
                 },
-                "arriba_6": {
+                "arriba_ref_protein_domains": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba reference protein domain"
                 },
-                "arriba_7": {
+                "arriba_fusions": {
                     "type": "string",
                     "fa_icon": "far fa-file-code",
                     "description": "Path to arriba output"
+                },
+                "ensembl_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to ensembl references"
+                },
+                "fusioncatcher": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Build or run fusioncatcher references/analyses"
+                },
+                "fusioncatcher_fusions": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to fusioncatcher output"
+                },
+                "fusioncatcher_limitSjdbInsertNsj": {
+                    "type": "integer",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Use limitSjdbInsertNsj with int for fusioncatcher"
+                },
+                "fusioncatcher_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to fusioncatcher references"
+                },
+                "fusioninspector_limitSjdbInsertNsj": {
+                    "type": "integer",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Use limitSjdbInsertNsj with int for fusioninspector STAR process"
+                },
+                "fusioninspector_only": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Skip fusion-report. --fusioninspector_fusions PATH needed to provide a fusion list as input"
+                },
+                "fusioninspector_fusions": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to a fusion list file built with format GENE1--GENE2"
+                },
+                "fusionreport": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Build fusionreport references"
+                },
+                "fusionreport_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to fusionreport references"
+                },
+                "hgnc_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to HGNC database file"
+                },
+                "hgnc_date": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to HGNC timestamp file for database retrieval"
+                },
+                "qiagen": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Use QIAGEN instead of SANGER to download COSMIC database"
+                },
+                "starfusion": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Build or run starfusion references/analyses"
+                },
+                "starfusion_fusions": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to starfusion output"
+                },
+                "starfusion_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to starfusion references"
+                },
+                "starindex": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Build or run starindex references/analyses"
+                },
+                "starindex_ref": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to starindex references"
+                },
+                "stringtie": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Run stringtie analysis"
+                },
+                "tools_cutoff": {
+                    "type": "integer",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Discard fusions identified by less than INT tools"
+                },
+                "whitelist": {
+                    "type": "string",
+                    "fa_icon": "far fa-file-code",
+                    "description": "Path to fusions to add to the input of fusioninspector"
                 }
             }
         },
         "read_trimming_options": {
-            "title": "Options for Read trimming",
+            "title": "Read trimming options",
             "type": "object",
             "fa_icon": "fas fa-cut",
             "description": "Options to adjust read trimming criteria.",
@@ -113,6 +260,171 @@
                     "type": "string",
                     "description": "Path to adapter fasta file: default: []",
                     "fa_icon": "fas fa-cut"
+                }
+            }
+        },
+        "compression_options": {
+            "title": "Alignment compression options",
+            "type": "object",
+            "fa_icon": "fas fa-cut",
+            "description": "Option to compress BAM files to CRAM.",
+            "properties": {
+                "cram": {
+                    "type": "string",
+                    "description": "List of tools for which to compress BAM file to CRAM,default: [], options: arriba, starfusion. Leave no space between options",
+                    "fa_icon": "fas fa-cut"
+                }
+            }
+        },
+        "reference_genome_options": {
+            "title": "Reference genome options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "description": "Reference genome related files and options required for the workflow.",
+            "properties": {
+                "genome": {
+                    "type": "string",
+                    "description": "Name of iGenomes reference.",
+                    "fa_icon": "fas fa-book"
+                },
+                "fasta": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
+                    "description": "Path to FASTA genome file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "fai": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.fn?ai(\\.gz)?$",
+                    "description": "Path to FASTA genome index file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "gtf": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.gtf?(\\.gz)?$",
+                    "description": "Path to GTF genome file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "chrgtf": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.gtf?(\\.gz)?$",
+                    "description": "Path to GTF genome file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "transcript": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
+                    "description": "Path to GTF genome file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "refflat": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.refflat?$",
+                    "description": "Path to GTF genome file.",
+                    "fa_icon": "far fa-file-code"
+                },
+                "rrna_intervals": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "pattern": "^\\S+\\.interval_list?$",
+                    "description": "Path to ribosomal interval list.",
+                    "fa_icon": "far fa-file-code"
+                }
+            }
+        },
+        "institutional_config_options": {
+            "title": "Institutional config options",
+            "type": "object",
+            "fa_icon": "fas fa-university",
+            "description": "Parameters used to describe centralised config profiles. These should not be edited.",
+            "help_text": "The centralised nf-core configuration profiles use a handful of pipeline parameters to describe themselves. This information is then printed to the Nextflow log when you run a pipeline. You should not need to change these values when you run a pipeline.",
+            "properties": {
+                "custom_config_version": {
+                    "type": "string",
+                    "description": "Git commit id for Institutional configs.",
+                    "default": "master",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "custom_config_base": {
+                    "type": "string",
+                    "description": "Base directory for Institutional configs.",
+                    "default": "https://raw.githubusercontent.com/nf-core/configs/master",
+                    "hidden": true,
+                    "help_text": "If you're running offline, Nextflow will not be able to fetch the institutional config files from the internet. If you don't need them, then this is not a problem. If you do need them, you should download the files from the repo and tell Nextflow where to find them with this parameter.",
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_name": {
+                    "type": "string",
+                    "description": "Institutional config name.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_description": {
+                    "type": "string",
+                    "description": "Institutional config description.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_contact": {
+                    "type": "string",
+                    "description": "Institutional config contact information.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_url": {
+                    "type": "string",
+                    "description": "Institutional config URL link.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                }
+            }
+        },
+        "max_job_request_options": {
+            "title": "Max job request options",
+            "type": "object",
+            "fa_icon": "fab fa-acquisitions-incorporated",
+            "description": "Set the top limit for requested resources for any single job.",
+            "help_text": "If you are running on a smaller system, a pipeline step requesting more resources than are available may cause the Nextflow to stop the run with an error. These options allow you to cap the maximum resources requested by any single job so that the pipeline will run on your system.\n\nNote that you can not _increase_ the resources requested by any job using these options. For that you will need your own configuration file. See [the nf-core website](https://nf-co.re/usage/configuration) for details.",
+            "properties": {
+                "max_cpus": {
+                    "type": "integer",
+                    "description": "Maximum number of CPUs that can be requested for any single job.",
+                    "default": 16,
+                    "fa_icon": "fas fa-microchip",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the CPU requirement for each process. Should be an integer e.g. `--max_cpus 1`"
+                },
+                "max_memory": {
+                    "type": "string",
+                    "description": "Maximum amount of memory that can be requested for any single job.",
+                    "default": "128.GB",
+                    "fa_icon": "fas fa-memory",
+                    "pattern": "^\\d+(\\.\\d+)?\\.?\\s*(K|M|G|T)?B$",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the memory requirement for each process. Should be a string in the format integer-unit e.g. `--max_memory '8.GB'`"
+                },
+                "max_time": {
+                    "type": "string",
+                    "description": "Maximum amount of time that can be requested for any single job.",
+                    "default": "240.h",
+                    "fa_icon": "far fa-clock",
+                    "pattern": "^(\\d+\\.?\\s*(s|m|h|d|day)\\s*)+$",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the time requirement for each process. Should be a string in the format integer-unit e.g. `--max_time '2.h'`"
                 }
             }
         },
@@ -189,7 +501,8 @@
                 "multiqc_logo": {
                     "type": "string",
                     "description": "Custom logo file to supply to MultiQC. File name must also be set in the MultiQC config file",
-                    "fa_icon": "fas fa-image"
+                    "fa_icon": "fas fa-image",
+                    "hidden": true
                 },
                 "multiqc_methods_description": {
                     "type": "string",
@@ -257,6 +570,18 @@
         },
         {
             "$ref": "#/definitions/read_trimming_options"
+        },
+        {
+            "$ref": "#/definitions/compression_options"
+        },
+        {
+            "$ref": "#/definitions/reference_genome_options"
+        },
+        {
+            "$ref": "#/definitions/institutional_config_options"
+        },
+        {
+            "$ref": "#/definitions/max_job_request_options"
         },
         {
             "$ref": "#/definitions/generic_options"
